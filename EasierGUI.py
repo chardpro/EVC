@@ -862,7 +862,7 @@ def click_train(
     global PID
     PID = p.pid
     p.wait()
-    return ("训练结束, 您可查看控制台训练日志或实验文件夹下的train.log", {"visible": False, "__type__": "update"}, {"visible": True, "__type__": "update"})
+    return ("O treinamento terminou, você pode ver o registro de treinamento no console ou no arquivo train.log na pasta do experimento.", {"visible": False, "__type__": "update"}, {"visible": True, "__type__": "update"})
 
 
 # but4.click(train_index, [exp_dir1], info3)
@@ -1477,7 +1477,7 @@ def zip_downloader(model):
 with gr.Blocks(theme=gr.themes.Base(), title='Easy-RVC-Web 💻') as app:
     with gr.Tabs():
         with gr.TabItem("Inference"):
-            gr.HTML("<h1> EasyGUI v2 [rejekts]</h1>")
+            gr.HTML("<h1> Easy Voice Cloner v2 </h1>")
 
             # Inference Preset Row
             # with gr.Row():
@@ -1529,9 +1529,9 @@ with gr.Blocks(theme=gr.themes.Base(), title='Easy-RVC-Web 💻') as app:
                         record_button.change(fn=save_to_wav, inputs=[record_button], outputs=[input_audio0])
                         record_button.change(fn=change_choices2, inputs=[], outputs=[input_audio0])
                     with gr.Row():
-                        with gr.Accordion('Text To Speech', open=False):
+                        with gr.Accordion('Text To Speech', open=False, visible=False):
                             with gr.Column():
-                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['en','es','fr','pt','zh-CN','de','hi','ja'], value='en')
+                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['en','es'], value='en')
                                 api_box = gr.Textbox(label="Enter your API Key for ElevenLabs, or leave empty to use GoogleTTS", value='')
                                 elevenid=gr.Dropdown(label="Voice:", choices=eleven_voices)
                             with gr.Column():
@@ -1539,7 +1539,7 @@ with gr.Blocks(theme=gr.themes.Base(), title='Easy-RVC-Web 💻') as app:
                                 tts_button = gr.Button(value="Speak")
                                 tts_button.click(fn=elevenTTS, inputs=[api_box,tfs, elevenid, lang], outputs=[record_button, input_audio0])
                     with gr.Row():
-                        with gr.Accordion('Wav2Lip', open=False):
+                        with gr.Accordion('Wav2Lip', open=False, visible=False):
                             with gr.Row():
                                 size = gr.Radio(label='Resolution:',choices=['Half','Full'])
                                 face = gr.UploadButton("Upload A Character",type='file')
@@ -1858,7 +1858,7 @@ with gr.Blocks(theme=gr.themes.Base(), title='Easy-RVC-Web 💻') as app:
                         sr2 = gr.Radio(
                             label=i18n("目标采样率"),
                             choices=["40k", "48k"],
-                            value="40k",
+                            value="48k",
                             interactive=True,
                             visible=False
                         )
