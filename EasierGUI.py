@@ -2001,12 +2001,12 @@ with gr.Blocks(theme=gr.themes.Base(), title='EVC 💻') as app:
                     with gr.Accordion("Base Model Locations:", open=False, visible=False):
                         pretrained_G14 = gr.Textbox(
                             label=i18n("加载预训练底模G路径"),
-                            value="pretrained_v2/f0G40k.pth",
+                            value="pretrained_v2/f0G48k.pth",
                             interactive=True,
                         )
                         pretrained_D15 = gr.Textbox(
                             label=i18n("加载预训练底模D路径"),
-                            value="pretrained_v2/f0D40k.pth",
+                            value="pretrained_v2/f0D48k.pth",
                             interactive=True,
                         )
                         gpus16 = gr.Textbox(
