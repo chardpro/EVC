@@ -1474,7 +1474,7 @@ def zip_downloader(model):
     else:
         return f'./weights/{model}.pth', "Could not find Index file."
 
-with gr.Blocks(theme=gr.themes.Base(), title='EVC 💻') as app:
+with gr.Blocks(theme=gr.themes.Base(), title='Easy Voice Cloner 💻') as app:
     with gr.Tabs():
         with gr.TabItem("Inference"):
             gr.HTML("<h1> Easy Voice Cloner v2 </h1>")
