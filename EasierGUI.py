@@ -917,7 +917,7 @@ def train_index(exp_dir1, version19):
         % (exp_dir, n_ivf, index_ivf.nprobe, exp_dir1, version19),
     )
     infos.append(
-        "成功构建索引，added_IVF%s_Flat_nprobe_%s_%s_%s.index"
+        "Index feito com sucesso，added_IVF%s_Flat_nprobe_%s_%s_%s.index"
         % (n_ivf, index_ivf.nprobe, exp_dir1, version19)
     )
     # faiss.write_index(index, '%s/added_IVF%s_Flat_FastScan_%s.index'%(exp_dir,n_ivf,version19))
@@ -1823,7 +1823,7 @@ with gr.Blocks(theme=gr.themes.Base(), title='EVC 💻') as app:
                         [vc_output3],
                     )
                     but1.click(fn=lambda: easy_uploader.clear())
-        with gr.TabItem("Download Model"):
+        with gr.TabItem("Download Model", visible=False):
             with gr.Row():
                 url=gr.Textbox(label="Enter the URL to the Model:")
             with gr.Row():
