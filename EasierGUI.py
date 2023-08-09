@@ -862,7 +862,7 @@ def click_train(
     global PID
     PID = p.pid
     p.wait()
-    return ("O treinamento terminou, você pode ver o registro de treinamento no console ou no arquivo train.log na pasta do experimento.", {"visible": False, "__type__": "update"}, {"visible": True, "__type__": "update"})
+    return ("O treinamento terminou, você pode ver o registro de treinamento no console ou no arquivo train.log na pasta 'logs/seuModelo'", {"visible": False, "__type__": "update"}, {"visible": True, "__type__": "update"})
 
 
 # but4.click(train_index, [exp_dir1], info3)
@@ -1706,7 +1706,7 @@ with gr.Blocks(theme=gr.themes.Base(), title='EVC 💻') as app:
                     [vc_output1, vc_output2],
                 )
                         
-            with gr.Accordion("Batch Conversion",open=False):
+            with gr.Accordion("Batch Conversion",open=False, visible=False):
                 with gr.Row():
                     with gr.Column():
                         vc_transform1 = gr.Number(
