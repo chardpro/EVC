@@ -1824,31 +1824,25 @@ with gr.Blocks(theme=gr.themes.Base(), title='Easy Voice Cloner 💻') as app:
                     )
                     but1.click(fn=lambda: easy_uploader.clear())
 
-        def has_ten_files_in_pretrained_folder():
-            pretrained_folder = "./pretrained_v2/"
-            if not os.path.exists(pretrained_folder):
-                return False
-            files_in_folder = os.listdir(pretrained_folder)
-            num_files = len(files_in_folder)
-            return num_files >= 10
+       
 
-        if has_ten_files_in_pretrained_folder():  
-            with gr.TabItem("Download Model", visible=False):
+       
+        with gr.TabItem("Download Model"):
+            with gr.Row():
+                url=gr.Textbox(label="Enter the URL to the Model:")
                 with gr.Row():
-                    url=gr.Textbox(label="Enter the URL to the Model:")
+                    model = gr.Textbox(label="Name your model:")
+                    download_button=gr.Button("Download")
                     with gr.Row():
-                        model = gr.Textbox(label="Name your model:")
-                        download_button=gr.Button("Download")
+                        status_bar=gr.Textbox(label="")
+                        download_button.click(fn=download_from_url, inputs=[url, model], outputs=[status_bar])
                         with gr.Row():
-                            status_bar=gr.Textbox(label="")
-                            download_button.click(fn=download_from_url, inputs=[url, model], outputs=[status_bar])
-                            with gr.Row():
-                                gr.Markdown(
-                                """
-                               ❤️ Se você gostou, me ajude a manter esse projeto.❤️ 
-                                https://paypal.me/lesantillan
-                                """
-                                )
+                            gr.Markdown(
+                            """
+                            ❤️ Se você gostou, me ajude a manter esse projeto.❤️ 
+                            https://instagram.com/chardpro
+                            """
+                            )
                 
         def has_two_files_in_pretrained_folder():
             pretrained_folder = "./pretrained_v2/"
@@ -1950,7 +1944,7 @@ with gr.Blocks(theme=gr.themes.Base(), title='Easy Voice Cloner 💻') as app:
                     with gr.Row():      
                         with gr.Column():
                             total_epoch11 = gr.Slider(
-                                minimum=1,
+                                minimum=0,
                                 maximum=1000,
                                 step=10,
                                 label="Total # of training epochs (IF you choose a value too high, your model will sound horribly overtrained.):",
